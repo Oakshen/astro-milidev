@@ -1,47 +1,19 @@
 ---
-import ArrowCardButton from "@components/ArrowCardButton.astro";
 import RootPageIndex from "@components/RootPageIndex.astro";
-
-import { CONTACT } from "@consts";
-import { resolvePath } from "@lib/utils";
-
-const linkedInContact = CONTACT.find((contact) => contact.type === "LinkedIn");
 ---
 
-<RootPageIndex title="Hire me" searchable>
-  <div class="animate mb-4">
-    <p class="mb-1">The PDF resume:</p>
-    <section>
-      <ArrowCardButton
-        href={resolvePath("/hire-me/milidev_resume.pdf", Astro.url.pathname)}
-        text="Download PDF"
-        openInNewTab
-      />
-    </section>
+<RootPageIndex title="简历 / 合作" searchable>
+  <div class="animate space-y-3">
+    <p>这里是一个占位页面，你可以把它改成「关于我」或「简历」页面。</p>
+    <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+      <p>建议做法：</p>
+      <ul class="list-disc space-y-1 pl-5">
+        <li>
+          把简历放到 <code>public/hire-me/</code>（例如
+          <code>resume.pdf</code>），然后在本页添加下载链接
+        </li>
+        <li>或者直接在这里写你的服务范围、合作方式、联系方式</li>
+      </ul>
+    </div>
   </div>
-  <div class="animate mb-4">
-    <p class="mb-1">The TXT resume:</p>
-    <section>
-      <ArrowCardButton
-        href={resolvePath("/hire-me/milidev_resume.txt", Astro.url.pathname)}
-        text="Download TXT"
-        openInNewTab
-      />
-    </section>
-  </div>
-
-  {
-    linkedInContact && (
-      <div class="animate mb-4">
-        <p class="mb-1">Or you can check my LinkedIn profile:</p>
-        <section>
-          <ArrowCardButton
-            href={linkedInContact.href}
-            text="Navigate to LinkedIn"
-            openInNewTab
-          />
-        </section>
-      </div>
-    )
-  }
 </RootPageIndex>

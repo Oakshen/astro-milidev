@@ -1,35 +1,36 @@
-# Astro Milidev
+# 个人博客（Astro）
 
-![Astro Milidev Banner](./public/projects/astro-milidev/astro-milidev-banner.png)
+这是一个基于 Astro + TailwindCSS 的个人博客/作品集站点（从 Astro Milidev 模板 fork 后做了精简）。
 
-<div style="text-align: center;">
+## 本地开发
 
-  **[DEMO / LIVE PREVIEW](https://bartoszlenar.github.io/astro-milidev)**
+```bash
+npm ci
+npm run dev
+```
 
-</div>
+构建与预览：
 
-## Info
+```bash
+npm run build
+npm run preview
+```
 
-Astro Milidev is a minimalistic portfolio+blog [Astro](https://astro.build) theme.
+## 写内容
 
-It originates from [Trevor Lee](https://github.com/trevortylerlee)'s [Astro Micro](https://astro-micro.vercel.app/) theme, which is based on [Mark Horn](https://github.com/markhorn-dev)'s [Astro Nano](https://astro-nano-demo.vercel.app/) (after "nano" and "micro" comes "mili", hence the first part of the name).
+内容使用 Astro Content Collections，目录在 `src/content/`：
 
-Astro Milidev enhances the above codebases with a variety of features. I customized the original theme for my personal website and also refactored core parts of the code, making it more customizable and extensible. 
+- 博客：`src/content/blog/<slug>/index.md` 或 `index.mdx`
+- 项目：`src/content/projects/<slug>/index.md` 或 `index.mdx`
+- 分享/演讲：`src/content/talks/<slug>/index.md` 或 `index.mdx`
 
-The list of modifications is available in this post: [Everything new in Astro Milidev](https://bartoszlenar.github.io/astro-milidev/blog/everything-new-in-astro-milidev/). Another post [Getting started](https://bartoszlenar.github.io/astro-milidev/blog/getting-started/) explains the configuration process step by step. The code is available on [GitHub](https://github.com/bartoszlenar/astro-milidev).
+Frontmatter 字段可参考 `src/content/config.ts`。
 
-Enjoy!
+## 部署到 GitHub Pages
 
-## Changelog
+仓库已内置 GitHub Actions 工作流：`.github/workflows/deploy.yml`，推送到 `main` 分支会自动构建并部署。
 
-The current version is v1.1.0
+站点地址相关配置在 `astro.config.mjs`：
 
-Changelog is available [here](./CHANGELOG.md).
-
-## Contributions
-
-Any PRs are more than welcome. Please direct them to the `develop` branch.
-
-## License
-
-MIT! 
+- 默认（Project Pages 未绑定自定义域名）：`site=https://<username>.github.io`，`base=/astro-milidev/`
+- 绑定自定义域名后：`site=https://blog.sxshenxue.top`，并移除 `base`（或保持为默认 `/`）

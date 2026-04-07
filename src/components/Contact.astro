@@ -2,21 +2,27 @@
 import { CONTACT } from "@consts";
 
 type Props = {
-    small?: boolean;
+  small?: boolean;
 };
 
 const { small } = Astro.props;
 ---
 
 <p class="mb-0" style={small ? "font-size: 0.875rem" : ""}>
-    {
-        CONTACT.map((c, index) => (
-            <>
-                <a href={c.href} target="_blank">
-                    {c.displayAs ?? c.type}
-                </a>
-                <span class="mx-2">{index < CONTACT.length - 1 && " | "}</span>
-            </>
-        ))
-    }
+  {
+    CONTACT.length === 0 ? (
+      <span class="text-sm text-gray-500">
+        （在 <code>src/consts.ts</code> 配置联系方式）
+      </span>
+    ) : (
+      CONTACT.map((c, index) => (
+        <>
+          <a href={c.href} target="_blank" rel="noopener noreferrer">
+            {c.displayAs ?? c.type}
+          </a>
+          {index < CONTACT.length - 1 && <span class="mx-2">|</span>}
+        </>
+      ))
+    )
+  }
 </p>

@@ -1,3 +1,0 @@
-Astro Milidev
-Example TXT
-https://github.com/bartoszlenar/astro-milidev
