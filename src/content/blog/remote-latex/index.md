@@ -119,18 +119,12 @@ ssh mylatex
 
 - `Option + Z` 用于切换 **Word Wrap（视觉自动折行/软换行）**
 
-它只改变显示方式，不会往 `.tex` 里插入回车。
+![未换行](./1.png)
+![换行](./2.png)
 
-如果你说的“折叠”是 **代码折叠**，默认快捷键通常是：
-
-- 折叠：`Option + Command + [`
-- 展开：`Option + Command + ]`
 
 ###  未来拓展多人协作怎么做
 
-建议优先把“可重复构建”和“可审阅”做起来：
-
 - **Git 工作流**：每个人开分支 → 提 PR → Review/合并；把 `out/` 等构建产物加入 `.gitignore`
-- **统一编译入口**：约定只用 `latexmk`（必要时补 `.latexmkrc` / `Makefile`），避免“你能编过我编不过”
 - **CI 自动编译**：加一个 GitHub Actions，在 PR/Push 时编译并上传 PDF artifact，减少环境差异
 - **版本与依赖**：尽量固定 TeX Live 版本（或用 Dev Container / Docker 统一环境），避免宏包版本漂移
