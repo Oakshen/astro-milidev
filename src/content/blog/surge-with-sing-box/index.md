@@ -1,3 +1,10 @@
+---
+title: "在 macOS 上用 Surge 分流，用 sing-box 作为 VLESS + Reality 出口"
+date: 2026-04-14
+description: "记录一套在 macOS 上保留 Surge 分流能力，同时用 sing-box 接入 VLESS + Reality 节点的配置方案。"
+tags: ["Surge", "sing-box", "VLESS", "Reality", "macOS"]
+---
+
 # 在 macOS 上用 Surge 分流、用 sing-box 作为 VLESS + Reality 出口
 
 ## 背景
