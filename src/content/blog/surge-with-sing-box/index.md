@@ -62,8 +62,6 @@ tags: ["Surge", "sing-box", "VLESS", "Reality", "macOS"]
 
 我本机实际使用的是 `sing-box 1.13.7`，本文配置写法也按这一版本整理。
 
-> 注意：下面文档中的服务器 IP、UUID、Reality 公钥、Short ID 等内容，建议你发布博客时都使用占位符，不要直接公开自己的真实节点参数。
-
 ---
 
 ## 第一步：准备 VLESS + Reality 节点信息
@@ -186,7 +184,7 @@ vless://UUID@your-server-ip:31614?type=tcp&encryption=none&security=reality&pbk=
 
 ## 第三步：先单独测试 sing-box
 
-先不要急着接入 Surge，先确认 `sing-box` 自己能启动。
+先确认 `sing-box` 是否正常。
 
 启动命令：
 
