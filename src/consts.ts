@@ -71,6 +71,7 @@ type ContactInfo = {
   type: string;
   href: string;
   displayAs?: string;
+  handle?: string;
 }
 
 type ContactSite = ContactInfo[]
@@ -84,5 +85,12 @@ export const CONTACT: ContactSite = [
   {
     type: "GitHub",
     href: "https://github.com/Oakshen",
+    displayAs: "GitHub",
+  },
+  {
+    type: "X",
+    href: "https://x.com/sxshenxue123",
+    displayAs: "X",
+    handle: "@sxshenxue123",
   },
 ];

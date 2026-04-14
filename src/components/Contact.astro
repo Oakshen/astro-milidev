@@ -8,7 +8,12 @@ type Props = {
 const { small } = Astro.props;
 ---
 
-<p class="mb-0" style={small ? "font-size: 0.875rem" : ""}>
+<div
+  class:list={[
+    "mb-0 flex flex-wrap items-center gap-x-2 gap-y-1.5",
+    small ? "text-sm" : "",
+  ]}
+>
   {
     CONTACT.length === 0 ? (
       <span class="text-sm text-gray-500">
@@ -17,12 +22,65 @@ const { small } = Astro.props;
     ) : (
       CONTACT.map((c, index) => (
         <>
-          <a href={c.href} target="_blank" rel="noopener noreferrer">
-            {c.displayAs ?? c.type}
+          <a
+            href={c.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-black transition-opacity hover:opacity-70 dark:text-white"
+            aria-label={c.displayAs ?? c.type}
+            title={c.displayAs ?? c.type}
+          >
+            {c.type === "Email" && (
+              <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+                <path
+                  fill="#EA4335"
+                  d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Z"
+                />
+                <path
+                  fill="#FFFFFF"
+                  d="M4.75 5.5h14.5c.2 0 .38.04.55.1L12 11.53 4.2 5.6c.17-.06.35-.1.55-.1Z"
+                />
+                <path
+                  fill="#4285F4"
+                  d="M3.5 7.05v9.7c0 .35.09.67.24.95l5.93-5.74L3.5 7.05Z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M20.26 17.7c.15-.28.24-.6.24-.95v-9.7l-6.17 4.9 5.93 5.75Z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M10.73 12.78 4.1 19.2c.19.08.41.13.65.13h14.5c.24 0 .46-.05.65-.13l-6.63-6.42L12 14.2l-1.27-1.42Z"
+                />
+              </svg>
+            )}
+            {c.type === "GitHub" && (
+              <svg
+                viewBox="0 0 24 24"
+                class="h-4 w-4 fill-current"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.56 0-.28-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.19a11.05 11.05 0 0 1 5.78 0c2.2-1.5 3.17-1.19 3.17-1.19.63 1.59.23 2.77.11 3.06.74.81 1.19 1.85 1.19 3.11 0 4.43-2.7 5.4-5.28 5.68.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+                />
+              </svg>
+            )}
+            {c.type === "X" && (
+              <svg
+                viewBox="0 0 24 24"
+                class="h-4 w-4 fill-current"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-7.4L5.6 22H2.5l7.24-8.28L1.8 2h6.4l4.42 6.82L18.9 2Zm-1.1 18h1.72L7.28 3.9H5.43L17.8 20Z"
+                />
+              </svg>
+            )}
+            {c.type !== "X" && <span>{c.displayAs ?? c.type}</span>}
           </a>
-          {index < CONTACT.length - 1 && <span class="mx-2">|</span>}
+          {index < CONTACT.length - 1 && <span class="mx-1">|</span>}
         </>
       ))
     )
   }
-</p>
+</div>

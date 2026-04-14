@@ -35,7 +35,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 const twitterHandle = CONTACT.find(
   (contact) => contact.type === "X",
-)?.displayAs;
+)?.handle;
 
 const ogImageFullUrl = new URL(resolvePath(ogImage), Astro.site);
 ---
