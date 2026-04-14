@@ -5,7 +5,7 @@ description: "用 Go + 多智能体工作流，把行情分析、交易决策与
 tags: ["Go", "LLM", "TradingBot", "Binance", "Quant"]
 ---
 
-项目仓库：`Oakshen/crypto-trading-bot`
+项目仓库：[Oakshen/crypto-trading-bot](https://github.com/Oakshen/crypto-trading-bot)
 
 这是一个 **Go 语言实现** 的加密货币量化交易 Agent：用 **LLM 分析市场数据 → 生成交易信号 →（可选）自动下单**，并配套一个 Web Dashboard 做监控与数据查询。整体偏向 **趋势交易**：更强调「极致选择性 + 高盈亏比 + 耐心持有」，风控上以 **ATR 追踪止损** 为主（不做止盈，让利润奔跑）。
 
